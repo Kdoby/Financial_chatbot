@@ -10,14 +10,13 @@ RUN npm run build
 FROM python:3.10-slim
 WORKDIR /app/backend
 
-# CPU 전용 PyTorch 먼저 설치 (CUDA 버전 제외 → ~1.5GB 절약)
-RUN pip install --no-cache-dir \
-    torch --index-url https://download.pytorch.org/whl/cpu
-
 COPY backend/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY backend/ .
+
+# BM25 인덱스 빌드 & pickle 저장 (런타임 startup 제거)
+RUN python -c "from services.rag import get_retriever; import pickle; r = get_retriever(); pickle.dump(r, open('rag_cache.pkl','wb'))"
 
 # 프론트엔드 빌드 결과만 복사
 COPY --from=frontend-build /app/frontend/dist ../frontend/dist

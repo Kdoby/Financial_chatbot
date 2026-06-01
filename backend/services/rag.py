@@ -12,7 +12,7 @@ import random
 from pathlib import Path
 
 DATA_PATH  = Path(__file__).parent.parent / "extracted_financial_qa.json"
-CACHE_PATH = Path(__file__).parent.parent / "rag_embeddings.npy"
+CACHE_PATH = Path(__file__).parent.parent / "rag_cache.pkl"
 
 # 금융 도메인 키워드 — 하나라도 포함되면 BM25 검색 진행
 _FINANCE_KEYWORDS = {
@@ -111,6 +111,12 @@ _retriever: RAGRetriever | None = None
 def get_retriever() -> RAGRetriever:
     global _retriever
     if _retriever is None:
-        _retriever = RAGRetriever(top_k=3)
-        _retriever.build()
+        if CACHE_PATH.exists():
+            import pickle
+            with open(CACHE_PATH, "rb") as f:
+                _retriever = pickle.load(f)
+            print("[RAG] 캐시 로드 완료")
+        else:
+            _retriever = RAGRetriever(top_k=3)
+            _retriever.build()
     return _retriever
