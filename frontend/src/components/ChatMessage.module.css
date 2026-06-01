@@ -1,0 +1,167 @@
+.userWrap {
+  display: flex;
+  justify-content: flex-end;
+}
+.userBubble {
+  max-width: 68%;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.22);
+  color: var(--cream);
+  border-radius: 16px;
+  border-bottom-right-radius: 3px;
+  padding: 12px 16px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.botWrap { display: flex; }
+.botBubble {
+  max-width: 76%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  border-bottom-left-radius: 3px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.errorBubble {
+  align-self: flex-start;
+  padding: 10px 16px;
+  background: rgba(192,57,43,0.1);
+  border: 1px solid rgba(192,57,43,0.3);
+  border-radius: 10px;
+  font-size: 0.88rem;
+  color: #e74c3c;
+}
+
+/* 모드 태그 */
+.modeLine {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.modeTag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  color: var(--muted);
+}
+.modeSub {
+  font-size: 0.72rem;
+  color: rgba(138,143,168,0.6);
+  font-family: var(--font-mono);
+}
+
+/* 답변 */
+.answer {
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: var(--cream);
+  white-space: pre-wrap;
+}
+
+/* SE 배지 */
+.seArea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.confBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+.high   { background: rgba(39,174,96,0.12);  color: #2ecc71; }
+.medium { background: rgba(230,126,34,0.12); color: #e67e22; }
+.low    { background: rgba(192,57,43,0.12);  color: #e74c3c; }
+
+.seDetail {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(138,143,168,0.7);
+}
+
+/* 샘플 */
+.samplesToggle {
+  background: none;
+  border: none;
+  font-size: 0.76rem;
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.samplesToggle:hover { opacity: 1; }
+
+.samplesList {
+  margin-top: 8px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.samplesList li {
+  padding-left: 12px;
+  border-left: 2px solid var(--border);
+  line-height: 1.5;
+}
+
+/* 출처 */
+.sources {
+  font-size: 0.72rem;
+  color: rgba(138,143,168,0.6);
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+/* 상담 연결 */
+.consultArea {
+  padding-top: 12px;
+  border-top: 1px dashed rgba(192,57,43,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.consultNotice {
+  font-size: 0.8rem;
+  color: #e74c3c;
+}
+.consultBtn {
+  align-self: flex-start;
+  background: rgba(192,57,43,0.12);
+  border: 1px solid rgba(192,57,43,0.4);
+  color: #e74c3c;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.consultBtn:hover:not(:disabled) {
+  background: rgba(192,57,43,0.2);
+  transform: translateY(-1px);
+}
+.consultBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+.consultDone {
+  background: rgba(39,174,96,0.12) !important;
+  border-color: rgba(39,174,96,0.4) !important;
+  color: #2ecc71 !important;
+}

@@ -1,0 +1,151 @@
+.panel {
+  width: 340px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border);
+  background: var(--bg-card);
+  height: 100%;
+  overflow: hidden;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--cream);
+}
+.onlineDot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: pulse 2s infinite;
+}
+.onlineDot.offline { background: var(--muted); animation: none; }
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
+
+.closeBtn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  transition: all 0.2s;
+}
+.closeBtn:hover { border-color: var(--danger); color: var(--danger); }
+
+/* 컨텍스트 */
+.context {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.contextLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 4px;
+}
+.contextText {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* 메시지 */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.waiting {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 20px 0;
+}
+
+.msg { display: flex; flex-direction: column; gap: 3px; }
+.msgClient { align-items: flex-end; }
+.msgConsult { align-items: flex-start; }
+
+.author {
+  font-size: 0.7rem;
+  color: var(--muted);
+  padding: 0 4px;
+  font-family: var(--font-mono);
+}
+
+.msgBubble {
+  max-width: 85%;
+  padding: 9px 13px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+.msgClient .msgBubble {
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.2);
+  color: var(--cream);
+  border-bottom-right-radius: 3px;
+}
+.msgConsult .msgBubble {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--cream);
+  border-bottom-left-radius: 3px;
+}
+
+/* 입력 */
+.inputRow {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.input {
+  flex: 1;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 13px;
+  font-size: 0.85rem;
+  color: var(--cream);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input::placeholder { color: var(--muted); }
+.input:focus { border-color: rgba(201,168,76,0.4); }
+.input:disabled { opacity: 0.5; }
+
+.sendBtn {
+  background: var(--gold);
+  color: #0b0f1c;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+.sendBtn:hover:not(:disabled) { background: #e0ba5a; }
+.sendBtn:disabled { background: var(--bg-input); color: var(--muted); }
