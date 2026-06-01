@@ -11,7 +11,7 @@ import numpy as np
 import random
 from pathlib import Path
 
-DATA_PATH  = Path(__file__).parent.parent.parent / "extracted_financial_qa.json"
+DATA_PATH  = Path(__file__).parent.parent / "extracted_financial_qa.json"
 CACHE_PATH = Path(__file__).parent.parent / "rag_embeddings.npy"
 
 # 금융 도메인 키워드 — 하나라도 포함되면 BM25 검색 진행

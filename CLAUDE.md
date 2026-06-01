@@ -18,6 +18,7 @@ finance_chatbot/
 │   ├── core/
 │   │   ├── sbert.py             # SBERT 싱글턴 (paraphrase-multilingual-MiniLM-L12-v2)
 │   │   └── session.py           # 상담 세션 인메모리 저장소
+│   ├── extracted_financial_qa.json  # 4,917개 금융 Q&A 데이터셋
 │   └── requirements.txt
 ├── frontend/
 │   ├── src/
@@ -30,7 +31,6 @@ finance_chatbot/
 │   │   └── api.js               # API 베이스 URL (VITE_API_URL 환경변수)
 │   ├── vercel.json              # SPA 라우팅 rewrite
 │   └── vite.config.js
-├── extracted_financial_qa.json  # 4,917개 금융 Q&A 데이터셋
 └── .env.example
 ```
 
