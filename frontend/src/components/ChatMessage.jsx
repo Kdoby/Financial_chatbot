@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import styles from './ChatMessage.module.css'
+import { API } from '../api'
 
 const MODE_INFO = {
   rag: { label: '📚 QA 직접 반환', desc: '데이터셋 답변' },
