@@ -6,7 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/chat':    'http://localhost:8000',
+      '/chat': {
+        target: 'http://localhost:8000',
+        bypass: (req) => { if (req.method === 'GET') return req.url },
+      },
       '/consult': 'http://localhost:8000',
       '/health':  'http://localhost:8000',
     }

@@ -8,6 +8,7 @@ load_dotenv(dotenv_path=Path(__file__).parent.parent / ".env")
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from services.rag import get_retriever
@@ -50,7 +51,14 @@ async def health():
 
 CLIENT_DIR = Path(__file__).parent.parent / "frontend" / "dist"
 if CLIENT_DIR.exists():
-    app.mount("/", StaticFiles(directory=str(CLIENT_DIR), html=True), name="static")
+    app.mount("/assets", StaticFiles(directory=str(CLIENT_DIR / "assets")), name="assets")
+
+    @app.get("/{full_path:path}")
+    async def serve_spa(full_path: str):
+        static_file = CLIENT_DIR / full_path
+        if static_file.is_file():
+            return FileResponse(str(static_file))
+        return FileResponse(str(CLIENT_DIR / "index.html"))
 
 
 if __name__ == "__main__":
